@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 final class PokemonTableViewCell: UITableViewCell {
     static var identifier: String { String(describing: self) }
@@ -23,11 +24,8 @@ final class PokemonTableViewCell: UITableViewCell {
 
     func configure(urls: [URL?]) {
         zip(pokemonImageViews, urls).forEach { imageView, url in
-            ImageLoader().loadImgae(url: url) { image in
-                DispatchQueue.main.async {
-                    imageView.image = image
-                }
-            }
+            imageView.kf.indicatorType = .activity
+            imageView.kf.setImage(with: url, placeholder: UIImage(named: "monsterBall"))
         }
     }
 }
