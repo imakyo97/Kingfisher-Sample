@@ -49,9 +49,9 @@ final class PokemonViewController: UIViewController {
         return url
     }
 
-    // MARK: - viewWillAppear
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    // MARK: - viewDidLayoutSubviews
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
         let cellHeight = view.bounds.width / CGFloat(numberOfPokemonInRow)
         pokemonTableView.rowHeight = cellHeight
     }
