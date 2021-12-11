@@ -29,19 +29,3 @@ final class PokemonTableViewCell: UITableViewCell {
         }
     }
 }
-
-final class ImageLoader {
-    func loadImgae(url: URL?, uiImage: @escaping (UIImage?) -> Void) {
-        let monsterBall = "monsterBall"
-        guard let url = url else { return uiImage(UIImage(named: monsterBall)) }
-        DispatchQueue.global().async {
-            do {
-                let data = try Data(contentsOf: url)
-                let image = UIImage(data: data)
-                uiImage(image)
-            } catch {
-                uiImage(UIImage(named: monsterBall))
-            }
-        }
-    }
-}
